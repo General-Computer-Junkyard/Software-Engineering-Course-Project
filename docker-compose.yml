@@ -1,0 +1,64 @@
+name: cet-nextgen
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: cet-nextgen-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-cet}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cet_password}
+      POSTGRES_DB: ${POSTGRES_DB:-cet_nextgen}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  redis:
+    image: redis:7-alpine
+    container_name: cet-nextgen-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cet-nextgen-api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: ${API_PORT_INTERNAL:-3000}
+      DATABASE_URL: ${DATABASE_URL:-postgresql://cet:cet_password@db:5432/cet_nextgen?schema=public}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+      JWT_SECRET: ${JWT_SECRET:-dev_change_me}
+    ports:
+      - "${API_PORT:-3000}:${API_PORT_INTERNAL:-3000}"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: ["sh", "-lc", "npm install --no-audit --no-fund && npm run prisma:generate && npm run start:dev"]
+
+volumes:
+  db_data:
+  redis_data:
+

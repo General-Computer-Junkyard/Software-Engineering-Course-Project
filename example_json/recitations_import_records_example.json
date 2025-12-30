@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "studentNo": "202512340001",
+      "studentName": "张三",
+      "className": "计科 1 班",
+      "date": "2025-12-29",
+      "words": 120,
+      "minutes": 20,
+      "note": "unit 1"
+    },
+    {
+      "studentNo": "202512340001",
+      "studentName": "张三",
+      "className": "计科 1 班",
+      "date": "2025-12-30",
+      "words": 80,
+      "minutes": 15
+    },
+    {
+      "studentNo": "202512340003",
+      "studentName": "王五",
+      "className": "计科 2 班",
+      "date": "2025-12-30",
+      "words": 160,
+      "minutes": 26
+    }
+  ]
+}
+
+
+

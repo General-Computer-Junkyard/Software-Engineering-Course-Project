@@ -1,0 +1,42 @@
+{
+  "examBatch": {
+    "examType": "CET4",
+    "year": 2025,
+    "month": 6,
+    "examDate": "2025-06-15T00:00:00.000Z",
+    "name": "CET4-2025-06"
+  },
+  "defaultEntrySource": "IMPORT",
+  "items": [
+    {
+      "studentNo": "202512340001",
+      "studentName": "张三",
+      "className": "计科 1 班",
+      "totalScore": 430,
+      "listeningScore": 142,
+      "readingScore": 148,
+      "writingScore": 140
+    },
+    {
+      "studentNo": "202512340002",
+      "studentName": "李四",
+      "className": "计科 1 班",
+      "totalScore": 398,
+      "listeningScore": 130,
+      "readingScore": 136,
+      "writingScore": 132
+    },
+    {
+      "studentNo": "202512340003",
+      "studentName": "王五",
+      "className": "计科 2 班",
+      "totalScore": 462,
+      "listeningScore": 154,
+      "readingScore": 160,
+      "writingScore": 148
+    }
+  ]
+}
+
+
+

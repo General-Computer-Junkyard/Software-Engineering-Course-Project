@@ -1,0 +1,33 @@
+{
+  "examBatch": {
+    "examType": "CET6",
+    "year": 2025,
+    "month": 12,
+    "examDate": "2025-12-15T00:00:00.000Z",
+    "name": "CET6-2025-12"
+  },
+  "defaultEntrySource": "IMPORT",
+  "items": [
+    {
+      "studentNo": "202512340001",
+      "studentName": "张三",
+      "className": "计科 1 班",
+      "totalScore": 410,
+      "listeningScore": 135,
+      "readingScore": 140,
+      "writingScore": 135
+    },
+    {
+      "studentNo": "202512340003",
+      "studentName": "王五",
+      "className": "计科 2 班",
+      "totalScore": 456,
+      "listeningScore": 150,
+      "readingScore": 156,
+      "writingScore": 150
+    }
+  ]
+}
+
+
+
