@@ -147,7 +147,7 @@ npm run dev
 - `backend/scripts/seed_500_students.js`：批量生成 500 个学生及成绩/背诵（用于压测与看效果）
 - `backend/scripts/adjust_seeded_students_classes_scores.js`：把已生成数据重新分班（含“人工智能 1/2 班”）
 - `backend/scripts/adjust_score_distributions.js`：把 CET4/CET6 的均分调整到目标值附近（例如四级≈500、六级≈430）并保持方差大
-- `backend/scripts/update_zhangtianshan.js`：更新张天山示例数据（姓名/成绩/背诵热图）
+- `backend/scripts/update_zhangtianshan.js`：更新xxx示例数据（姓名/成绩/背诵热图）
 
 运行示例：
 
